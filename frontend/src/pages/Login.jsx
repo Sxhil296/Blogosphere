@@ -1,12 +1,14 @@
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { URL } from "../url";
+import { UserContext } from "../context/UserContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
+  const { setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleLogin = async () => {
@@ -14,9 +16,9 @@ const Login = () => {
       const res = await axios.post(URL + "/api/auth/login", {
         email,
         password,
-      });
+      }, {withCredentials:true});
       // console.log(res.data);
-      // setError(false)
+      setUser(res.data);
       navigate("/");
     } catch (error) {
       setError(true);
@@ -28,7 +30,7 @@ const Login = () => {
     <>
       <div className="flex items-center justify-between px-6 md:px-[200px] py-4">
         <h1 className="text-lg md:text-xl font-extrabold">
-          <Link to="/">Blog Market</Link>
+          <Link to="/">Blogosphere</Link>
         </h1>
         <h3>
           <Link to="/register">Register</Link>

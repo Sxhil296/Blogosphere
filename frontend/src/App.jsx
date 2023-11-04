@@ -7,6 +7,7 @@ import PostDetails from "./pages/PostDetails";
 import CreatePost from "./pages/CreatePost";
 import EditPost from "./pages/EditPost";
 import Profile from "./pages/Profile";
+import { UserContextProvider } from "./context/UserContext";
 
 const router = createBrowserRouter([
   {
@@ -47,9 +48,9 @@ const router = createBrowserRouter([
 
 const App = () => {
   return (
-    <div>
+    <UserContextProvider>
       <RouterProvider router={router} />
-    </div>
+    </UserContextProvider>
   );
 };
 
