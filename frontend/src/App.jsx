@@ -8,6 +8,7 @@ import CreatePost from "./pages/CreatePost";
 import EditPost from "./pages/EditPost";
 import Profile from "./pages/Profile";
 import { UserContextProvider } from "./context/UserContext";
+import MyBlogs from "./pages/MyBlogs";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/profile/:id",
         element: <Profile />,
+      },
+      {
+        path:"/myblogs/:id",
+        element:<MyBlogs />
       },
     ],
   },
