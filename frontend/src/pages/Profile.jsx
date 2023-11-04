@@ -100,7 +100,6 @@ const Profile = () => {
               placeholder="Your email"
               type="email"
             />
-            {/* <input onChange={(e)=>setPassword(e.target.value)} value={password} className="outline-none px-4 py-2 text-gray-500" placeholder="Your password" type="password"/> */}
             <div className="flex items-center space-x-4 mt-8">
               <button
                 onClick={handleUserUpdate}
