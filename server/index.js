@@ -28,14 +28,10 @@ dotenv.config();
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
-// use the client app
-// app.use(express.static(path.join(__dirname, '/client/dist')))
 
-// render client path
-// app.use('*', (req, res) => res.sendFile(path.join(__dirname, '/client/dist/index.html')))
 
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
-// app.use(cors({ origin: "https://sphereofblogs.netlify.app", credentials: true }));
+// app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({ origin: "https://bloogosphere.netlify.app/", credentials: true }));
 app.use(cookieParser());
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
